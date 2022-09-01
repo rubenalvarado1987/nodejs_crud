@@ -45,8 +45,9 @@ const crearCategoria = async(req, res = response ) => {
 
     // Generar la data a guardar
     const data = {
-        nombre,
-        usuario: req.usuario._id
+        nombre
+        //,
+        //usuario: req.usuario._id
     }
 
     const categoria = new Categoria( data );
@@ -64,7 +65,7 @@ const actualizarCategoria = async( req, res = response ) => {
     const { estado, usuario, ...data } = req.body;
 
     data.nombre  = data.nombre.toUpperCase();
-    data.usuario = req.usuario._id;
+    //data.usuario = req.usuario._id;
 
     const categoria = await Categoria.findByIdAndUpdate(id, data, { new: true });
 
